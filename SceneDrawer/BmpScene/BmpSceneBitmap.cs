@@ -4,6 +4,8 @@
 		public int UserSceneY1 { get; set; }
 		public int UserSceneX2 { get; set; }
 		public int UserSceneY2 { get; set; }
+		public int UserSceneWidth => Math.Max(UserSceneX1, UserSceneX2) - Math.Min(UserSceneX1, UserSceneX2) + 1;
+		public int UserSceneHeight => Math.Max(UserSceneY1, UserSceneY2) - Math.Min(UserSceneY1, UserSceneY2) + 1;
 
 		private int _userSceneOffsetX => Math.Min(UserSceneX1, UserSceneX2);
 		private int _userSceneOffsetY => Math.Min(UserSceneY1, UserSceneY2);
