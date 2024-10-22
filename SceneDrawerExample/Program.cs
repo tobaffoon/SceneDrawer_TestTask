@@ -7,11 +7,16 @@ namespace SceneDrawerExample {
 			SceneTextFileParser sceneParser = new SceneTextFileParser();
 
 			string inPath;
-			if (args.Length > 0 && File.Exists(args[0])) {
-				inPath = args[0];
+			if (args.Length == 0) {
+				Console.Error.WriteLine("No input filepath is provided");
+				return -1;
+			}
+			if (!File.Exists(args[0])) {
+				Console.Error.WriteLine($"Input file at {args[0]} doesn't exists");
+				return -1;
 			}
 			else {
-				inPath = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName, Properties.Resources.InputFilePath); // project_Folder/Resources/example.txt
+				inPath = args[0];
 			}
 
 			string outPath;
