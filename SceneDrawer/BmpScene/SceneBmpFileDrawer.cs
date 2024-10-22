@@ -17,6 +17,7 @@
 		private readonly byte[] _infoHeaderImportant = [0x00, 0x00, 0x00, 0x00];
 
 		public readonly byte[] BlackPixel = [0x00, 0x00, 0x00];
+		public readonly byte[] WhitePixel = [0xFF, 0xFF, 0xFF];
 
 		public void DrawScene(Scene scene, Stream oStream) {
 			if (oStream is not FileStream fs) {
