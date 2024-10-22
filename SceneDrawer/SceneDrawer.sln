@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SceneDrawer", "SceneDrawer.shproj", "{FE388276-1113-437E-BE55-1F8B825445EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SceneDrawerExample", "..\SceneDrawerExample\SceneDrawerExample.csproj", "{71EADFDD-4C33-4004-B5E7-39BEBD0A51AE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{71EADFDD-4C33-4004-B5E7-39BEBD0A51AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71EADFDD-4C33-4004-B5E7-39BEBD0A51AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71EADFDD-4C33-4004-B5E7-39BEBD0A51AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71EADFDD-4C33-4004-B5E7-39BEBD0A51AE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {152BA4C5-900F-439D-9DE9-BCCF3CD31766}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		SceneDrawer.projitems*{71eadfdd-4c33-4004-b5e7-39bebd0a51ae}*SharedItemsImports = 5
+		SceneDrawer.projitems*{fe388276-1113-437e-be55-1f8b825445ee}*SharedItemsImports = 13
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>fe388276-1113-437e-be55-1f8b825445ee</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>SceneDrawer</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)DrawObjects\DrawObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DrawObjects\Point.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DrawObjects\HLine.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DrawObjects\Line.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DrawObjects\Polygon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DrawObjects\Rect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DrawObjects\VLine.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SceneBmpFileDrawer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SceneTextFileParser.cs" />
+    <Compile Include="..\SceneDrawer\ISceneDrawer.cs" />
+    <Compile Include="..\SceneDrawer\ISceneParser.cs" />
+  </ItemGroup>
+</Project>
