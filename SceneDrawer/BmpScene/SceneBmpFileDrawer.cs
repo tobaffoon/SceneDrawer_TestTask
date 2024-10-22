@@ -4,13 +4,13 @@
 		public const int BmpInfoHeaderSizeInBytes = 40;
 		public const int BytesPerPixel = 3;
 		public const int BmpRowAllignment = 4;
-		public const uint BlackPixel = 0x000000FF;
+		public const uint BlackPixel = 0xFF000000;
 		public const uint WhitePixel = 0xFFFFFFFF;
-		public const ushort BmpMagicNumber = 0x424D;
+		public const ushort BmpMagicNumber = 0x4D42;
 		public const uint BmpHeaderReserved = 0x00000000;
-		public const uint BmpDataOffset = 0x36000000;
-		public const uint BmpInfoHeaderSize = 0x28000000;
-		public const ushort BmpInfoHeaderPlanes = 0x0100;
+		public const uint BmpDataOffset = 0x00000036;
+		public const uint BmpInfoHeaderSize = 0x00000028;
+		public const ushort BmpInfoHeaderPlanes = 0x0001;
 		public const uint BmpInfoHeaderCompression = 0x00000000;
 		public const uint BmpInfoHeaderResolutionX = 0x00000000;
 		public const uint BmpInfoHeaderResolutionY = 0x00000000;
@@ -36,7 +36,8 @@
 			using (BinaryWriter bw = new BinaryWriter(oStream)) {
 				uint filesize = (uint)(BmpHeaderSizeInBytes + BmpInfoHeaderSizeInBytes + (BytesPerPixel * bm.Width + GetPaddingPerRow(bm)) * bm.Height);
 				WriteBmpHeader(filesize, bw);
-				WriteBmpInfoHeader(bm.Width, bm.Height, bw);
+				WriteBmpInfoHeader(bm, bw);
+				bw.Flush();
 				WritePixelData(bm, bw);
 			}
 		}
@@ -48,7 +49,6 @@
 
 			#region File Size
 			byte[] buffer = BitConverter.GetBytes(filesize);
-			Array.Reverse(buffer);
 			bw.Write(buffer);
 			#endregion
 
@@ -61,20 +61,18 @@
 			#endregion
 		}
 
-		private void WriteBmpInfoHeader(int widthInPixels, int heightInPixels, BinaryWriter bw) {
+		private void WriteBmpInfoHeader(BmpSceneBitmap bm, BinaryWriter bw) {
 			#region Info header size
 			bw.Write(BmpInfoHeaderSize);
 			#endregion
 
 			#region Image width in pixels
-			byte[] buffer = BitConverter.GetBytes(widthInPixels);
-			Array.Reverse(buffer);
+			byte[] buffer = BitConverter.GetBytes((uint)bm.Width);
 			bw.Write(buffer);
 			#endregion
 
 			#region Image height in pixels
-			buffer = BitConverter.GetBytes(heightInPixels);
-			Array.Reverse(buffer);
+			buffer = BitConverter.GetBytes((uint)bm.Height);
 			bw.Write(buffer);
 			#endregion
 
@@ -84,7 +82,6 @@
 
 			#region Bits per pixel
 			buffer = BitConverter.GetBytes((ushort)(BytesPerPixel * 8));
-			Array.Reverse(buffer);
 			bw.Write(buffer);
 			#endregion
 
@@ -93,10 +90,8 @@
 			#endregion
 
 			#region Byte size of pixel data
-			uint rawRowSize = (uint)widthInPixels * BytesPerPixel;
-			uint dataSize = (rawRowSize + rawRowSize % BmpRowAllignment) * (uint)heightInPixels;
+			int dataSize = (BytesPerPixel * bm.Width + GetPaddingPerRow(bm)) * bm.Height;
 			buffer = BitConverter.GetBytes(dataSize);
-			Array.Reverse(buffer);
 			bw.Write(buffer);
 			#endregion
 
@@ -141,7 +136,7 @@
 		}
 
 		private int GetPaddingPerRow(BmpSceneBitmap bm) {
-			return bm.Width * BytesPerPixel % BmpRowAllignment;
+			return (BmpRowAllignment - bm.Width * BytesPerPixel % BmpRowAllignment) % BmpRowAllignment;
 		}
 	}
 }
