@@ -2,7 +2,7 @@
 
 namespace SceneDrawer.SceneObjects.BitmapObjects {
 	public class BmVLine : VLine {
-		public BmVLine(int x, int y1, int y2) : base(x, y1, y2) {
+		public BmVLine(int y1, int y2, int x) : base(y1, y2, x) {
 		}
 
 		public override void Paint(IPaintContext dc) {
@@ -10,8 +10,8 @@ namespace SceneDrawer.SceneObjects.BitmapObjects {
 				throw new ArgumentException($"{nameof(BmVLine)} tried to draw itself on {dc.GetType()} while expecting {typeof(BmpSceneBitmap)}");
 			}
 
-			for (int i = Y1; i < Y2; i++) {
-				bmContext.SetPixelUInt(X1, i, SceneBmpFileDrawer.BlackPixel);
+			for (int i = MinY; i <= MaxY; i++) {
+				bmContext.SetUserScenePixel(X, i, SceneBmpFileDrawer.BlackPixel);
 			}
 		}
 	}

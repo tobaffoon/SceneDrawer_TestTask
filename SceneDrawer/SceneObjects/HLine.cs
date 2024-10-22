@@ -1,22 +1,15 @@
 ﻿namespace SceneDrawer.SceneObjects {
-	public abstract class HLine : Line {
-		private int _y;
-		public new int Y1 {
-			get {
-				return _y;
-			}
-			set {
-				_y = value;
-			}
+	public abstract class HLine : SceneObject {
+		public int X1 { get; set; }
+		public int X2 { get; set; }
+		public int Y { get; set; }
+		public new int MinX => Math.Min(X1, X2);
+		public new int MaxX => Math.Max(X1, X2);
+
+		public HLine(int x1, int x2, int y) {
+			X1 = x1;
+			X2 = x2;
+			Y = y;
 		}
-		public new int Y2 {
-			get {
-				return _y;
-			}
-			set {
-				_y = value;
-			}
-		}
-		public HLine(int x1, int x2, int y) : base(x1, y, x2, y) { }
 	}
 }

@@ -10,9 +10,9 @@ namespace SceneDrawer.SceneObjects.BitmapObjects {
 				throw new ArgumentException($"{nameof(BmRect)} tried to draw itself on {dc.GetType()} while expecting {typeof(BmpSceneBitmap)}");
 			}
 
-			for (int i = X1; i < X2; i++) {
-				for (int j = Y1; j < Y2; j++) {
-					bmContext.SetPixelUInt(i, j, SceneBmpFileDrawer.BlackPixel);
+			for (int i = X1; i <= X2; i++) {
+				for (int j = Y1; j <= Y2; j++) {
+					bmContext.SetUserScenePixel(i, j, SceneBmpFileDrawer.BlackPixel);
 				}
 			}
 		}

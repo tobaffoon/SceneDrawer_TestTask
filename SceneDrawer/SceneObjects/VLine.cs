@@ -1,23 +1,15 @@
 ﻿namespace SceneDrawer.SceneObjects {
-	public abstract class VLine : Line {
-		private int _x;
-		public new int X1 {
-			get {
-				return _x;
-			}
-			set {
-				_x = value;
-			}
-		}
-		public new int X2 {
-			get {
-				return _x;
-			}
-			set {
-				_x = value;
-			}
-		}
+	public abstract class VLine : SceneObject {
+		public int X { get; set; }
+		public int Y1 { get; set; }
+		public int Y2 { get; set; }
+		public new int MinY => Math.Min(Y1, Y2);
+		public new int MaxY => Math.Max(Y1, Y2);
 
-		public VLine(int x, int y1, int y2) : base(x, y1, x, y2) { }
+		public VLine(int y1, int y2, int x) {
+			Y1 = y1;
+			Y2 = y2;
+			X = x;
+		}
 	}
 }
