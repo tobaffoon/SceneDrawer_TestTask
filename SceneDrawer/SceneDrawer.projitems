@@ -14,6 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)IDrawContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IBitmap.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)BmpScene\BmpBitmapPainter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SceneObjects\BitmapObjects\BitmapPaintUtils.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SceneObjects\BitmapObjects\BmHLine.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SceneObjects\BitmapObjects\BmLine.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SceneObjects\BitmapObjects\BmPoint.cs" />
