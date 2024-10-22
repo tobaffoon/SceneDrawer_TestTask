@@ -1,4 +1,4 @@
-﻿using SceneDrawer.DrawObjects;
+﻿using SceneDrawer.SceneObjects;
 
 namespace SceneDrawer {
 	public class Scene {
@@ -14,6 +14,6 @@ namespace SceneDrawer {
 			Y2 = y2;
 		}
 
-		public List<DrawObject> DrawObjects { get; } = new List<DrawObject>();
+		public List<SceneObject> DrawObjects { get; } = new List<SceneObject>();
 	}
 }
