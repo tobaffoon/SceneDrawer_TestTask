@@ -9,7 +9,7 @@
     <Import_RootNamespace>SceneDrawer</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)BmpScene\Bitmap.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BmpScene\IBitmap.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)BmpScene\BitmapDrawer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DrawObjects\DrawObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DrawObjects\Point.cs" />
