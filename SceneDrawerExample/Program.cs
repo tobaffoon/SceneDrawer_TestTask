@@ -1,24 +1,34 @@
 ﻿using SceneDrawer;
 using SceneDrawer.BmpScene;
-using SceneDrawer.SceneObjects;
 
 namespace SceneDrawerExample {
 	public class Program() {
 		public static void Main(string[] args) {
 			SceneTextFileParser sceneParser = new SceneTextFileParser();
 
-			string path;
+			string inPath;
 			if (args.Length > 0 && File.Exists(args[0])) {
-				path = args[0];
+				inPath = args[0];
 			}
 			else {
-				path = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName, Properties.Resources.InputFilePath);
+				inPath = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName, Properties.Resources.InputFilePath);
 			}
 
-			Scene scene = sceneParser.ParseScene(path);
+			string outPath;
+			if (args.Length > 1) {
+				outPath = args[1];
+			}
+			else {
+				outPath = Path.Combine(Environment.CurrentDirectory, "out.bmp");
+			}
+
+			Scene scene = sceneParser.ParseScene(inPath);
 			BmpSceneBitmap bmpSceneBitmap = new BmpSceneBitmap(scene.X1, scene.Y1, scene.X2, scene.Y2);
-			BitmapPainter painter = new BitmapPainter(bmpSceneBitmap);
+			BmpBitmapPainter painter = new BmpBitmapPainter(bmpSceneBitmap);
 			painter.PaintScene(scene);
+
+			SceneBmpFileDrawer drawer = new SceneBmpFileDrawer();
+			drawer.DrawScene(scene, bmpSceneBitmap, outPath);
 		}
 	}
 }

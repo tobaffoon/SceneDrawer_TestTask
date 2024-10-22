@@ -61,20 +61,7 @@ namespace SceneDrawerExample.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 10 10 1000 1000
-        ///point 1 2
-        ///rect 1 2 3 4
-        ///hline 10 10 20
-        ///vline 30 30 40.
-        /// </summary>
-        internal static string input {
-            get {
-                return ResourceManager.GetString("input", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Resources\input.txt.
+        ///   Looks up a localized string similar to Resources\example.txt.
         /// </summary>
         internal static string InputFilePath {
             get {
