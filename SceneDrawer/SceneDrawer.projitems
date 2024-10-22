@@ -17,7 +17,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)DrawObjects\Rect.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DrawObjects\VLine.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scene.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)SceneBmpFileDrawer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BmpFileDrawer\SceneBmpFileDrawer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SceneTextFileParser.cs" />
     <Compile Include="..\SceneDrawer\ISceneDrawer.cs" />
     <Compile Include="..\SceneDrawer\ISceneParser.cs" />
