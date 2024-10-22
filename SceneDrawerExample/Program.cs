@@ -1,5 +1,5 @@
 ﻿using SceneDrawer;
-using SceneDrawer.DrawObjects;
+using SceneDrawer.SceneObjects;
 
 namespace SceneDrawerExample {
 	public class Program() {
@@ -15,7 +15,7 @@ namespace SceneDrawerExample {
 			}
 
 			Scene scene = sceneParser.ParseScene(path);
-			foreach (DrawObject dobj in scene.DrawObjects) {
+			foreach (SceneObject dobj in scene.DrawObjects) {
 				switch (dobj) {
 					case Point point:
 						Console.WriteLine($"Point: {point.X}, {point.Y}");

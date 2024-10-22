@@ -1,5 +1,5 @@
-﻿namespace SceneDrawer.DrawObjects {
-	public class Rect : DrawObject {
+﻿namespace SceneDrawer.SceneObjects {
+	public abstract class Rect : SceneObject {
 		public int X1 { get; set; }
 		public int Y1 { get; set; }
 		public int X2 { get; set; }
@@ -10,10 +10,6 @@
 			Y1 = y1;
 			X2 = x2;
 			Y2 = y2;
-		}
-
-		public override void Draw() {
-			throw new NotImplementedException();
 		}
 	}
 }

@@ -1,4 +1,4 @@
-﻿using SceneDrawer.DrawObjects;
+﻿using SceneDrawer.SceneObjects;
 
 namespace SceneDrawer {
 	public class SceneTextFileParser : ISceneParser {
@@ -30,7 +30,7 @@ namespace SceneDrawer {
 			return scene;
 		}
 
-		private DrawObject ParseDrawObject(string s) {
+		private SceneObject ParseDrawObject(string s) {
 			string[] tokens = s.Split(' ');
 			switch (tokens[0]) {
 				case "point":

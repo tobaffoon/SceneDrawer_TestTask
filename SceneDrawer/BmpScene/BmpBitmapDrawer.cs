@@ -1,4 +1,4 @@
-﻿using SceneDrawer.DrawObjects;
+﻿using SceneDrawer.SceneObjects;
 
 namespace SceneDrawer.BmpScene {
 	public class BitmapDrawer {
