@@ -3,19 +3,20 @@
 		public const int BmpHeaderSizeInBytes = 14;
 		public const int BmpInfoHeaderSizeInBytes = 40;
 		public const uint BytesPerPixel = 3;
-		public const uint BpmRowAllignment = 4;
+		public const uint BmpRowAllignment = 4;
 		public const uint BlackPixel = 0x000000FF;
 		public const uint WhitePixel = 0xFFFFFFFF;
-		public const ushort BpmMagicNumber = 0x424D;
-		public const uint BpmHeaderReserved = 0x00000000;
-		public const uint BpmDataOffset = 0x36000000;
-		public const uint BpmInfoHeaderSize = 0x28000000;
-		public const ushort BpmInfoHeaderPlanes = 0x0100;
-		public const uint BpmInfoHeaderCompression = 0x00000000;
-		public const uint BpmInfoHeaderResolutionX = 0x00000000;
-		public const uint BpmInfoHeaderResolutionY = 0x00000000;
-		public const uint BpmInfoHeaderColorIndex = 0x00000000;
-		public const uint BpmInfoHeaderImportant = 0x00000000;
+		public const ushort BmpMagicNumber = 0x424D;
+		public const uint BmpHeaderReserved = 0x00000000;
+		public const uint BmpDataOffset = 0x36000000;
+		public const uint BmpInfoHeaderSize = 0x28000000;
+		public const ushort BmpInfoHeaderPlanes = 0x0100;
+		public const uint BmpInfoHeaderCompression = 0x00000000;
+		public const uint BmpInfoHeaderResolutionX = 0x00000000;
+		public const uint BmpInfoHeaderResolutionY = 0x00000000;
+		public const uint BmpInfoHeaderColorIndex = 0x00000000;
+		public const uint BmpInfoHeaderImportant = 0x00000000;
+		public const uint BmpRgbPixelMask = 0xFFFFFF00;
 
 		public void DrawScene(Scene scene, IBitmap bm, Stream oStream) {
 			if (oStream is not FileStream fs) {
@@ -42,7 +43,7 @@
 
 		private void WriteBmpHeader(uint filesize, BinaryWriter bw) {
 			#region Magic numbers
-			bw.Write(BpmMagicNumber);
+			bw.Write(BmpMagicNumber);
 			#endregion
 
 			#region File Size
@@ -52,17 +53,17 @@
 			#endregion
 
 			#region Reserved
-			bw.Write(BpmHeaderReserved);
+			bw.Write(BmpHeaderReserved);
 			#endregion
 
 			#region Actual pixel data offset
-			bw.Write(BpmDataOffset);
+			bw.Write(BmpDataOffset);
 			#endregion
 		}
 
 		private void WriteBmpInfoHeader(int widthInPixels, int heightInPixels, BinaryWriter bw) {
 			#region Info header size
-			bw.Write(BpmInfoHeaderSize);
+			bw.Write(BmpInfoHeaderSize);
 			#endregion
 
 			#region Image width in pixels
@@ -78,7 +79,7 @@
 			#endregion
 
 			#region Planes
-			bw.Write(BpmInfoHeaderPlanes);
+			bw.Write(BmpInfoHeaderPlanes);
 			#endregion
 
 			#region Bits per pixel
@@ -88,36 +89,33 @@
 			#endregion
 
 			#region Compression method
-			bw.Write(BpmInfoHeaderCompression);
+			bw.Write(BmpInfoHeaderCompression);
 			#endregion
 
 			#region Byte size of pixel data
 			uint rawRowSize = (uint)widthInPixels * BytesPerPixel;
-			uint dataSize = (rawRowSize + rawRowSize % BpmRowAllignment) * (uint)heightInPixels;
+			uint dataSize = (rawRowSize + rawRowSize % BmpRowAllignment) * (uint)heightInPixels;
 			buffer = BitConverter.GetBytes(dataSize);
 			Array.Reverse(buffer);
 			bw.Write(buffer);
 			#endregion
 
 			#region Print resolution (x coord)
-			bw.Write(BpmInfoHeaderResolutionX);
+			bw.Write(BmpInfoHeaderResolutionX);
 			#endregion
 
 			#region Print resolution (y coord)
-			bw.Write(BpmInfoHeaderResolutionY);
+			bw.Write(BmpInfoHeaderResolutionY);
 			#endregion
 
 			#region Byte size of pixel data
-			bw.Write(BpmInfoHeaderColorIndex);
+			bw.Write(BmpInfoHeaderColorIndex);
 			#endregion
 
 			#region Byte size of pixel data
-			bw.Write(BpmInfoHeaderImportant);
+			bw.Write(BmpInfoHeaderImportant);
 			#endregion
 		}
 
-		private void WritePixelData(BmpSceneBitmap bm, BinaryWriter bw) {
-			
-		}
 	}
 }
