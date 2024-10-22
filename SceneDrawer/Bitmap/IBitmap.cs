@@ -1,5 +1,5 @@
 ﻿namespace SceneDrawer.Bitmap {
-	public interface IBitmap : IPaintContext {
+	public interface IBitmap : IDrawContext {
 		public int Width { get; }
 		public int Height { get; }
 

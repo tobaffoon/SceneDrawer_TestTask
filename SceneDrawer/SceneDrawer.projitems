@@ -11,7 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Bitmap\BmpBitmap.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Bitmap\BmpSceneBitmap.cs" />
-    <Compile Include="..\SceneDrawer\IPaintContext.cs" />
+    <Compile Include="..\SceneDrawer\IDrawContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Bitmap\IBitmap.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Bitmap\BmpBitmapDrawer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Bitmap\BitmapObjects\BitmapPaintUtils.cs" />

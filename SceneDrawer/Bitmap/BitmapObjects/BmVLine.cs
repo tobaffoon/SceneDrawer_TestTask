@@ -5,7 +5,7 @@ namespace SceneDrawer.Bitmap.BitmapObjects {
 		public BmVLine(int y1, int y2, int x) : base(y1, y2, x) {
 		}
 
-		public override void Draw(IPaintContext dc) {
+		public override void Draw(IDrawContext dc) {
 			if (dc is not BmpSceneBitmap bmContext) {
 				throw new ArgumentException($"{nameof(BmVLine)} tried to draw itself on {dc.GetType()} while expecting {typeof(BmpSceneBitmap)}");
 			}

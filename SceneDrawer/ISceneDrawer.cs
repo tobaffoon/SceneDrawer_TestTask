@@ -1,5 +1,5 @@
 ﻿namespace SceneDrawer {
 	public interface ISceneDrawer {
-		void DrawScene(Scene scene, IPaintContext context);
+		void DrawScene(Scene scene, IDrawContext context);
 	}
 }
