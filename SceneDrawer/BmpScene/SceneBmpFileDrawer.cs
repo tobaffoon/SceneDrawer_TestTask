@@ -1,4 +1,4 @@
-﻿namespace SceneDrawer.BmpFileDrawer {
+﻿namespace SceneDrawer.BmpScene {
 	public class SceneBmpFileDrawer : ISceneDrawer {
 		public const int BmpHeaderSizeInBytes = 14;
 		public const int BmpInfoHeaderSizeInBytes = 40;
