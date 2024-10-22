@@ -10,8 +10,8 @@ namespace SceneDrawer.Bitmap.BitmapObjects {
 				throw new ArgumentException($"{nameof(BmRect)} tried to draw itself on {dc.GetType()} while expecting {typeof(BmpSceneBitmap)}");
 			}
 
-			for (int i = X1; i <= X2; i++) {
-				for (int j = Y1; j <= Y2; j++) {
+			for (int i = MinX; i <= MaxX; i++) {
+				for (int j = MinY; j <= MaxY; j++) {
 					bmContext.SetUserScenePixel(i, j);
 				}
 			}
