@@ -6,6 +6,7 @@
 
 		private readonly byte[] _magicNumbers = [0x42, 0x4D];
 		private readonly byte[] _dataOffset = [0x36, 0x00, 0x00, 0x00];
+		private readonly byte[] _headerReserved = [0x00, 0x00, 0x00, 0x00];
 		private readonly byte[] _infoHeaderSize = [0x28, 0x00, 0x00, 0x00];
 
 		public readonly byte[] BlackPixel = [0x00, 0x00, 0x00];
@@ -35,14 +36,13 @@
 			#endregion
 
 			#region File Size
-			byte[] buffer = new byte[4];
-			buffer = BitConverter.GetBytes(filesize);
+			byte[] buffer = BitConverter.GetBytes(filesize);
 			Array.Reverse(buffer);
 			bw.Write(buffer);
 			#endregion
 
 			#region Reserved
-			bw.Write([0, 0, 0, 0]);
+			bw.Write(_headerReserved);
 			#endregion
 
 			#region Actual pixel data offset
