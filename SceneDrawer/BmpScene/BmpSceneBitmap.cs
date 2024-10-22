@@ -10,11 +10,11 @@
 		private int _userSceneOffsetX => Math.Min(UserSceneX1, UserSceneX2);
 		private int _userSceneOffsetY => Math.Min(UserSceneY1, UserSceneY2);
 
-		public BmpSceneBitmap(int x1, int y1, int x2, int y2) : base(Math.Max(x1,x2), Math.Max(y1,y2)) {
-			UserSceneX1 = x1;
-			UserSceneY1 = y1;
-			UserSceneX2 = x2;
-			UserSceneY2 = y2;
+		public BmpSceneBitmap(int userSceneX1, int userSceneY1, int userSceneX2, int userSceneY2) : base(Math.Max(userSceneX1,userSceneX2), Math.Max(userSceneY1,userSceneY2)) {
+			UserSceneX1 = userSceneX1;
+			UserSceneY1 = userSceneY1;
+			UserSceneX2 = userSceneX2;
+			UserSceneY2 = userSceneY2;
 		}
 
 		public uint GetUserScenePixel(int x, int y) {
