@@ -3,7 +3,7 @@
 		public const int BmpHeaderSizeInBytes = 14;
 		public const int BmpInfoHeaderSizeInBytes = 40;
 		public const uint BytesPerPixel = 3;
-		public const uint PixelWordSize = 4;
+		public const uint BpmRowAllignment = 4;
 		public const uint BlackPixel = 0x000000FF;
 		public const uint WhitePixel = 0xFFFFFFFF;
 		public const ushort BpmMagicNumber = 0x424D;
@@ -90,7 +90,7 @@
 
 			#region Byte size of pixel data
 			uint rawRowSize = (uint)widthInPixels * BytesPerPixel;
-			uint dataSize = (rawRowSize + rawRowSize % PixelWordSize) * (uint)heightInPixels;
+			uint dataSize = (rawRowSize + rawRowSize % BpmRowAllignment) * (uint)heightInPixels;
 			buffer = BitConverter.GetBytes(dataSize);
 			Array.Reverse(buffer);
 			bw.Write(buffer);
@@ -111,6 +111,10 @@
 			#region Byte size of pixel data
 			bw.Write(BpmInfoHeaderImportant);
 			#endregion
+		}
+
+		private void WriteBitmap(BmpSceneBitmap bm, BinaryWriter bw) {
+			
 		}
 	}
 }
