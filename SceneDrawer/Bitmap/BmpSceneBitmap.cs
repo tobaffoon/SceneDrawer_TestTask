@@ -33,6 +33,11 @@
 		private int _userSpaceOffsetX => Math.Min(UserSpaceX1, UserSpaceX2);
 		private int _userSpaceOffsetY => Math.Min(UserSpaceY1, UserSpaceY2);
 
+		/// <summary>
+		/// Creates a BmpSceneBitmap that will fit the allocated drawing space. 
+		/// 
+		/// Note that it is possible to reference [userSpaceX1, userSpaceX2], [userSpaceY1, userSpaceY2] pixels (both borders are included).
+		/// </summary>
 		public BmpSceneBitmap(int userSpaceX1, int userSpaceY1, int userSpaceX2, int userSpaceY2) : base(Math.Max(userSpaceX1,userSpaceX2)+1, Math.Max(userSpaceY1,userSpaceY2)+1) {
 			if (userSpaceX1 < 0 || userSpaceY1 < 0 || userSpaceX2 < 0 || userSpaceY2 < 0) {
 				throw new ArgumentException($"Negative coordinate was passed as User Space boarders of Bitmap. Only non-negative coordinates are allowed.\n Passed coordinates: ({userSpaceX1}, {userSpaceY1}, {userSpaceX2}, {userSpaceY2})");
