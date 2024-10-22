@@ -20,5 +20,11 @@ namespace SceneDrawer.BmpScene {
 				}
 			}
 		}
+
+		public void PaintScene(Scene scene) {
+			foreach (SceneObject paintable in scene.DrawObjects) {
+				paintable.Paint(Bitmap);
+			}
+		}
 	}
 }
