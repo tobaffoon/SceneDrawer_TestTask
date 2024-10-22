@@ -10,7 +10,7 @@ namespace SceneDrawer.SceneObjects.BitmapObjects {
 				throw new ArgumentException($"{nameof(BmPoint)} tried to draw itself on {dc.GetType()} while expecting {typeof(BmpSceneBitmap)}");
 			}
 
-			bmContext.SetPixelUInt(X, Y, SceneBmpFileDrawer.BlackPixel);
+			bmContext.SetUserScenePixel(X, Y, SceneBmpFileDrawer.BlackPixel);
 		}
 	}
 }
