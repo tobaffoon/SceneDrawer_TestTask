@@ -103,7 +103,7 @@ namespace SceneDrawer {
 				throw new ArgumentException($"Coords: ({string.Join(", ", args)}) were passed as Polygon parameters. They have uneven ({args.Length}) number of coordinates, however even number is expected as they represent coordinates of polygon's vertices");
 			}
 
-			if (args.Length / 2 <= 3) {
+			if (args.Length / 2 < 3) {
 				throw new ArgumentException($"Coords: ({string.Join(", ", args)}) were passed as Polygon parameters. They represent {args.Length / 2} vertices, however at least 3 are expected");
 			}
 			
