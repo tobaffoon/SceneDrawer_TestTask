@@ -1,4 +1,5 @@
 ﻿using SceneDrawer;
+using SceneDrawer.BmpScene;
 using SceneDrawer.SceneObjects;
 
 namespace SceneDrawerExample {
@@ -15,25 +16,9 @@ namespace SceneDrawerExample {
 			}
 
 			Scene scene = sceneParser.ParseScene(path);
-			foreach (SceneObject dobj in scene.DrawObjects) {
-				switch (dobj) {
-					case Point point:
-						Console.WriteLine($"Point: {point.X}, {point.Y}");
-						break;
-					case Rect rect:
-						Console.WriteLine($"Rect: ({rect.X1}, {rect.Y1}), ({rect.X2}, {rect.Y2})");
-						break;
-					case Line line:
-						Console.WriteLine($"Line: ({line.X1}, {line.Y1}), ({line.X2}, {line.Y2})");
-						break;
-					case Polygon poly:
-                        Console.WriteLine("Polygon:");
-						foreach ((int, int) point in poly.Points) {
-							Console.WriteLine($"\t({point.Item1}, {point.Item2})");
-						}
-						break;
-				}
-			}
+			BmpSceneBitmap bmpSceneBitmap = new BmpSceneBitmap(scene.X1, scene.Y1, scene.X2, scene.Y2);
+			BitmapPainter painter = new BitmapPainter(bmpSceneBitmap);
+			painter.PaintScene(scene);
 		}
 	}
 }

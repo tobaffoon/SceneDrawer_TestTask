@@ -2,8 +2,8 @@
 	public class SceneBmpFileDrawer : ISceneDrawer {
 		public const int BmpHeaderSizeInBytes = 14;
 		public const int BmpInfoHeaderSizeInBytes = 40;
-		public const uint BytesPerPixel = 3;
-		public const uint BmpRowAllignment = 4;
+		public const int BytesPerPixel = 3;
+		public const int BmpRowAllignment = 4;
 		public const uint BlackPixel = 0x000000FF;
 		public const uint WhitePixel = 0xFFFFFFFF;
 		public const ushort BmpMagicNumber = 0x424D;
@@ -16,7 +16,6 @@
 		public const uint BmpInfoHeaderResolutionY = 0x00000000;
 		public const uint BmpInfoHeaderColorIndex = 0x00000000;
 		public const uint BmpInfoHeaderImportant = 0x00000000;
-		public const uint BmpRgbPixelMask = 0xFFFFFF00;
 
 		public void DrawScene(Scene scene, IBitmap bm, Stream oStream) {
 			if (oStream is not FileStream fs) {
@@ -117,5 +116,27 @@
 			#endregion
 		}
 
+		private void WritePixelData(BmpSceneBitmap bm, BinaryWriter bw) {
+			// pixels in bmp are stored from top to bottom, from left to right
+			// Thus we write bytes from the last row first
+			for (int i = bm.Height - 1; i >= 0; i--) {
+				WritePixelRow(i, bm, bw);
+			}
+		}
+
+		private void WritePixelRow(int row, BmpSceneBitmap bm, BinaryWriter bw) {
+			byte[] buffer;
+			Index pixelIndex = Index.FromStart(BytesPerPixel);
+			for (int i = 0; i < bm.Width; i++) {
+				buffer = BitConverter.GetBytes(bm.pixels[i, row])[..pixelIndex];
+				bw.Write(buffer);
+			}
+
+			// fix allignment
+			int padding = bm.Width * BytesPerPixel % BmpRowAllignment;
+			for (int i = 0; i < padding; i++) {
+				bw.Write((byte)0);
+			}
+		}
 	}
 }
