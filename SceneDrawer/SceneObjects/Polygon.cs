@@ -1,4 +1,7 @@
 ﻿namespace SceneDrawer.SceneObjects {
+	/// <summary>
+	/// Class that represent polygon on an abstract 2D scene.
+	/// </summary>
 	public abstract class Polygon : SceneObject {
 		protected List<(int,int)> _points = new List<(int, int)>();
 

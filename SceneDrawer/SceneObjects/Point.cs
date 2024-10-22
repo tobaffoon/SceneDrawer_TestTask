@@ -1,4 +1,7 @@
 ﻿namespace SceneDrawer.SceneObjects {
+	/// <summary>
+	/// Class that represent point on an abstract 2D scene.
+	/// </summary>
 	public abstract class Point : SceneObject {
 		public int X { get; set; }
 		public int Y { get; set; }

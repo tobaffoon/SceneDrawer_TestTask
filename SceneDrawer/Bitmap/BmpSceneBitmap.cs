@@ -1,10 +1,33 @@
 ﻿namespace SceneDrawer.Bitmap {
+	/// <summary>
+	/// BmpBitmap that has special space allocated for drawing.
+	/// 
+	/// This space is alligned to bottom-right of the bitmap.
+	/// </summary>
 	public class BmpSceneBitmap : BmpBitmap {
+		/// <summary>
+		/// First of the X coordinates of allocated drawing space.
+		/// </summary>
 		public int UserSpaceX1 { get; set; }
+		/// <summary>
+		/// First of the Y coordinates of allocated drawing space.
+		/// </summary>
 		public int UserSpaceY1 { get; set; }
+		/// <summary>
+		/// Second of the X coordinates of allocated drawing space.
+		/// </summary>
 		public int UserSpaceX2 { get; set; }
+		/// <summary>
+		/// Second of the Y coordinates of allocated drawing space.
+		/// </summary>
 		public int UserSpaceY2 { get; set; }
+		/// <summary>
+		/// Width of allocated drawing space.
+		/// </summary>
 		public int UserSceneWidth => Math.Max(UserSpaceX1, UserSpaceX2) - Math.Min(UserSpaceX1, UserSpaceX2) + 1;
+		/// <summary>
+		/// Height of allocated drawing space.
+		/// </summary>
 		public int UserSceneHeight => Math.Max(UserSpaceY1, UserSpaceY2) - Math.Min(UserSpaceY1, UserSpaceY2) + 1;
 
 		private int _userSpaceOffsetX => Math.Min(UserSpaceX1, UserSpaceX2);
@@ -20,10 +43,16 @@
 			UserSpaceY2 = userSpaceY2;
 		}
 
+		/// <summary>
+		/// Convenient method for getting bitmap pixel in allocated drawing space. 
+		/// </summary>
 		public uint GetUserScenePixel(int x, int y) {
 			return GetPixelUInt(x + _userSpaceOffsetX, y + _userSpaceOffsetY);
 		}
 
+		/// <summary>
+		/// Convenient method for setting bitmap pixel in allocated drawing space. 
+		/// </summary>
 		public void SetUserScenePixel(int x, int y) {
 			SetPixelUInt(x + _userSpaceOffsetX, y + _userSpaceOffsetY);
 		}

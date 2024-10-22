@@ -1,4 +1,7 @@
 ﻿namespace SceneDrawer.SceneObjects {
+	/// <summary>
+	/// Class that represent horizontal line on an abstract 2D scene.
+	/// </summary>
 	public abstract class HLine : SceneObject {
 		public int X1 { get; set; }
 		public int X2 { get; set; }

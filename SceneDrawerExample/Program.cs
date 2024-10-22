@@ -11,7 +11,7 @@ namespace SceneDrawerExample {
 				inPath = args[0];
 			}
 			else {
-				inPath = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName, Properties.Resources.InputFilePath);
+				inPath = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName, Properties.Resources.InputFilePath); // project_Folder/Resources/example.txt
 			}
 
 			string outPath;

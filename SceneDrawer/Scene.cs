@@ -1,6 +1,9 @@
 ﻿using SceneDrawer.SceneObjects;
 
 namespace SceneDrawer {
+	/// <summary>
+	/// Class representing 2D scene with abstract object on it.
+	/// </summary>
 	public class Scene {
 		public int X1 { get; set; }
 		public int Y1 { get; set; }

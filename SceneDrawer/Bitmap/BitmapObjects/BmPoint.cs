@@ -1,6 +1,9 @@
 ﻿using SceneDrawer.SceneObjects;
 
 namespace SceneDrawer.Bitmap.BitmapObjects {
+	/// <summary>
+	/// Class representing pixel on bitmap.
+	/// </summary>
 	public class BmPoint : Point {
 		public BmPoint(int x, int y) : base(x, y) {
 		}

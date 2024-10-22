@@ -2,6 +2,21 @@
 using SceneDrawer.SceneObjects;
 
 namespace SceneDrawer {
+	/// <summary>
+	/// Class to deserialize scene from a text file.
+	/// 
+	/// Format of these files are:
+	/// X1 Y1 X2 Y2
+	/// [object_name] [parameters]
+	/// [object_name] [parameters]
+	/// ...
+	/// 
+	/// Where X1, Y2, X2, Y2 - coordinates representing borders of the scene,
+	/// object_name - name of an object on scene. Currently it can equal to: point, rect, hline, vline, line and poly,
+	/// parameters - parameters to pass to object's constructor. Usually they hust represent coordinates.
+	/// 
+	/// Number of entries "[object_name] [parameters]" is not limited.
+	/// </summary>
 	public class SceneTextFileParser : ISceneParser {
 		public Scene ParseScene(Stream iStream) {
 			if (iStream is not FileStream fs) {

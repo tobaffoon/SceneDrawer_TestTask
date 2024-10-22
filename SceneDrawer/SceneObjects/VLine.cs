@@ -1,4 +1,7 @@
 ﻿namespace SceneDrawer.SceneObjects {
+	/// <summary>
+	/// Class that represent vertical line on an abstract 2D scene.
+	/// </summary>
 	public abstract class VLine : SceneObject {
 		public int X { get; set; }
 		public int Y1 { get; set; }

@@ -1,6 +1,9 @@
 ﻿using SceneDrawer.SceneObjects;
 
 namespace SceneDrawer.Bitmap.BitmapObjects {
+	/// <summary>
+	/// Class representing polygon on bitmap.
+	/// </summary>
 	public class BmPolygon : Polygon {
 
 		public override void Draw(IDrawContext dc) {

@@ -1,4 +1,7 @@
 ﻿namespace SceneDrawer.Bitmap {
+	/// <summary>
+	/// Interface for abstract bitmaps.
+	/// </summary>
 	public interface IBitmap : IDrawContext {
 		public int Width { get; }
 		public int Height { get; }

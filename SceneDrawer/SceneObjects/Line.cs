@@ -1,4 +1,7 @@
 ﻿namespace SceneDrawer.SceneObjects {
+	/// <summary>
+	/// Class that represent arbitrary line on an abstract 2D scene.
+	/// </summary>
 	public abstract class Line : SceneObject{
 		public int X1 { get; set; }
 		public int Y1 { get; set; }

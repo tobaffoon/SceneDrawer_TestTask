@@ -1,6 +1,9 @@
 ﻿using SceneDrawer.SceneObjects;
 
 namespace SceneDrawer.Bitmap {
+	/// <summary>
+	/// Class that draws Scene contents on BmpBitmap.
+	/// </summary>
 	public class BmpBitmapDrawer : ISceneDrawer {
 		public const uint BlackPixel = 0xFF000000;
 		public const uint WhitePixel = 0xFFFFFFFF;

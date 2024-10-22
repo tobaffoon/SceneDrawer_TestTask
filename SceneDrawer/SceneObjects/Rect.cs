@@ -1,4 +1,7 @@
 ﻿namespace SceneDrawer.SceneObjects {
+	/// <summary>
+	/// Class that represent rectangle on an abstract 2D scene.
+	/// </summary>
 	public abstract class Rect : SceneObject {
 		public int X1 { get; set; }
 		public int Y1 { get; set; }

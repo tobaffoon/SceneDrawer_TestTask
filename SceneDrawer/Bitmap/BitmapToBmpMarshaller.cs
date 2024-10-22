@@ -1,4 +1,7 @@
 ﻿namespace SceneDrawer.Bitmap {
+	/// <summary>
+	/// Static class for marhalling BmpBitmap to .bmp file.
+	/// </summary>
 	public class BitmapToBmpMarshaller {
 		public const int BmpHeaderSizeInBytes = 14;
 		public const int BmpInfoHeaderSizeInBytes = 40;

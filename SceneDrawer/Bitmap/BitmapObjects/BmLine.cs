@@ -1,6 +1,9 @@
 ﻿using SceneDrawer.SceneObjects;
 
 namespace SceneDrawer.Bitmap.BitmapObjects {
+	/// <summary>
+	/// Class representing arbitrary line on bitmap.
+	/// </summary>
 	public class BmLine : Line {
 		public BmLine(int x1, int y1, int x2, int y2) : base(x1, y1, x2, y2) {
 		}

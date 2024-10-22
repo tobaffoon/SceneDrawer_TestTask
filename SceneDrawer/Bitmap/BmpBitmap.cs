@@ -1,4 +1,9 @@
 ﻿namespace SceneDrawer.Bitmap {
+	/// <summary>
+	/// Class that represent Bitmap that uses uint array to store pixel information.
+	/// 
+	/// This Bitmap is expected to be marshalled to .bmp file.
+	/// </summary>
 	public class BmpBitmap : IBitmap {
 		public int Width { get; }
 		public int Height { get; }
@@ -26,11 +31,17 @@
 			return BitConverter.GetBytes(pixels[x, y]);
 		}
 
+		/// <summary>
+		/// Convenient method for setting bitmap pixel with uint value instead of byte[].
+		/// </summary>
 		public void SetPixelUInt(int x, int y, uint value = BmpBitmapDrawer.BlackPixel) {
 			CheckCoordinates(x, y);
 			pixels[x, y] = value;
 		}
 
+		/// <summary>
+		/// Convenient method for getting uint bitmap pixel instead of byte[].
+		/// </summary>
 		public uint GetPixelUInt(int x, int y) {
 			CheckCoordinates(x, y);
 			return pixels[x, y];

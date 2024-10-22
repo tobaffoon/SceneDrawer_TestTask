@@ -1,6 +1,9 @@
 ﻿using SceneDrawer.SceneObjects;
 
 namespace SceneDrawer.Bitmap.BitmapObjects {
+	/// <summary>
+	/// Class representing vertical line on bitmap.
+	/// </summary>
 	public class BmVLine : VLine {
 		public BmVLine(int y1, int y2, int x) : base(y1, y2, x) {
 		}
