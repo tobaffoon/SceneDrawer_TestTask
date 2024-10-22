@@ -1,5 +1,5 @@
 ﻿using SceneDrawer;
-using SceneDrawer.BmpScene;
+using SceneDrawer.Bitmap;
 
 namespace SceneDrawerExample {
 	public class Program() {
@@ -24,11 +24,10 @@ namespace SceneDrawerExample {
 
 			Scene scene = sceneParser.ParseScene(inPath);
 			BmpSceneBitmap bmpSceneBitmap = new BmpSceneBitmap(scene.X1, scene.Y1, scene.X2, scene.Y2);
-			BmpBitmapPainter painter = new BmpBitmapPainter(bmpSceneBitmap);
-			painter.PaintScene(scene);
+			BmpBitmapDrawer drawer = new BmpBitmapDrawer();
+			drawer.DrawScene(scene, bmpSceneBitmap);
 
-			SceneBmpFileDrawer drawer = new SceneBmpFileDrawer();
-			drawer.DrawScene(scene, bmpSceneBitmap, outPath);
+			BitmapToBmpMarshaller.MarshallBitmap(bmpSceneBitmap, outPath);
 		}
 	}
 }

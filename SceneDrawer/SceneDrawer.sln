@@ -5,7 +5,7 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SceneDrawer", "SceneDrawer.shproj", "{FE388276-1113-437E-BE55-1F8B825445EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SceneDrawerExample", "..\SceneDrawerExample\SceneDrawerExample.csproj", "{71EADFDD-4C33-4004-B5E7-39BEBD0A51AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SceneDrawerExample", "..\SceneDrawerExample\SceneDrawerExample.csproj", "{71EADFDD-4C33-4004-B5E7-39BEBD0A51AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

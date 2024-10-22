@@ -1,5 +1,5 @@
-﻿using SceneDrawer.SceneObjects;
-using SceneDrawer.SceneObjects.BitmapObjects;
+﻿using SceneDrawer.Bitmap.BitmapObjects;
+using SceneDrawer.SceneObjects;
 
 namespace SceneDrawer {
 	public class SceneTextFileParser : ISceneParser {
@@ -17,9 +17,12 @@ namespace SceneDrawer {
 		
 		public Scene ParseScene(FileStream fs) {
 			Scene scene;
-			string currentLine;
+			string? currentLine;
 			using (StreamReader reader = new StreamReader(fs)) {
 				currentLine = reader.ReadLine();
+				if (currentLine == null) {
+					throw new ArgumentException($"File {fs.Name} is empty, so parsing of the scene failed");
+				}
 				int[] sceneCoords = currentLine.Trim().Split(' ').Select(int.Parse).ToArray();
 				scene = new Scene(sceneCoords[0], sceneCoords[1], sceneCoords[2], sceneCoords[3]);
 

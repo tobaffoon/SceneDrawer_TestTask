@@ -1,5 +1,5 @@
 ﻿namespace SceneDrawer.BmpScene {
-	public class SceneBmpFileDrawer : ISceneDrawer {
+	public class SceneToBmpMarshaller {
 		public const int BmpHeaderSizeInBytes = 14;
 		public const int BmpInfoHeaderSizeInBytes = 40;
 		public const int BytesPerPixel = 3;
@@ -16,17 +16,6 @@
 		public const uint BmpInfoHeaderResolutionY = 0x00000000;
 		public const uint BmpInfoHeaderColorIndex = 0x00000000;
 		public const uint BmpInfoHeaderImportant = 0x00000000;
-
-		public void DrawScene(Scene scene, IBitmap bm, Stream oStream) {
-			if (oStream is not FileStream fs) {
-				throw new ArgumentException($"{nameof(SceneBmpFileDrawer)} expected {typeof(FileStream)} but recieved {oStream.GetType()}");
-			}
-			if (bm is not BmpSceneBitmap bmScene) {
-				throw new ArgumentException($"{nameof(SceneBmpFileDrawer)} expected {typeof(BmpSceneBitmap)} but recieved {bm.GetType()}");
-			}
-
-			DrawScene(scene, bmScene, fs);
-		}
 
 		public void DrawScene(Scene scene, BmpSceneBitmap bm, string path) {
 			DrawScene(scene, bm, new FileStream(path, FileMode.OpenOrCreate));

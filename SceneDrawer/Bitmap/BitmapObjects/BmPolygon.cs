@@ -1,9 +1,9 @@
-﻿using SceneDrawer.BmpScene;
+﻿using SceneDrawer.SceneObjects;
 
-namespace SceneDrawer.SceneObjects.BitmapObjects {
+namespace SceneDrawer.Bitmap.BitmapObjects {
 	public class BmPolygon : Polygon {
 
-		public override void Paint(IPaintContext dc) {
+		public override void Draw(IPaintContext dc) {
 			if (dc is not BmpSceneBitmap bmContext) {
 				throw new ArgumentException($"{nameof(BmPolygon)} tried to draw itself on {dc.GetType()} while expecting {typeof(BmpSceneBitmap)}");
 			}
@@ -16,7 +16,7 @@ namespace SceneDrawer.SceneObjects.BitmapObjects {
 				x2 = Points[i+1].Item1;
 				y2 = Points[i+1].Item2;
 				foreach ((int, int) coord in BitmapPaintUtils.GetLinePixelsGenerator(x1, y1, x2, y2)) {
-					bmContext.SetUserScenePixel(coord.Item1, coord.Item2, SceneBmpFileDrawer.BlackPixel);
+					bmContext.SetUserScenePixel(coord.Item1, coord.Item2);
 				}
 			}
 
@@ -26,7 +26,7 @@ namespace SceneDrawer.SceneObjects.BitmapObjects {
 			x2 = Points[0].Item1;
 			y2 = Points[0].Item2;
 			foreach ((int, int) coord in BitmapPaintUtils.GetLinePixelsGenerator(x1, y1, x2, y2)) {
-				bmContext.SetUserScenePixel(coord.Item1, coord.Item2, SceneBmpFileDrawer.BlackPixel);
+				bmContext.SetUserScenePixel(coord.Item1, coord.Item2);
 			}
 		}
 	}

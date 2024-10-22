@@ -9,18 +9,18 @@
     <Import_RootNamespace>SceneDrawer</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)BmpScene\BmpBitmap.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)BmpScene\BmpSceneBitmap.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Bitmap\BmpBitmap.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Bitmap\BmpSceneBitmap.cs" />
     <Compile Include="..\SceneDrawer\IPaintContext.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)IBitmap.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)BmpScene\BmpBitmapPainter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)SceneObjects\BitmapObjects\BitmapPaintUtils.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)SceneObjects\BitmapObjects\BmHLine.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)SceneObjects\BitmapObjects\BmLine.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)SceneObjects\BitmapObjects\BmPoint.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)SceneObjects\BitmapObjects\BmPolygon.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)SceneObjects\BitmapObjects\BmRect.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)SceneObjects\BitmapObjects\BmVLine.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Bitmap\IBitmap.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Bitmap\BmpBitmapDrawer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Bitmap\BitmapObjects\BitmapPaintUtils.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Bitmap\BitmapObjects\BmHLine.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Bitmap\BitmapObjects\BmLine.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Bitmap\BitmapObjects\BmPoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Bitmap\BitmapObjects\BmPolygon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Bitmap\BitmapObjects\BmRect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Bitmap\BitmapObjects\BmVLine.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SceneObjects\SceneObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SceneObjects\Point.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SceneObjects\HLine.cs" />
@@ -28,7 +28,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)SceneObjects\Polygon.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SceneObjects\Rect.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SceneObjects\VLine.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)BmpScene\SceneBmpFileDrawer.cs" />
+    <Compile Include="..\SceneDrawer\Bitmap\BitmapToBmpMarshaller.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scene.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SceneTextFileParser.cs" />
     <Compile Include="..\SceneDrawer\ISceneDrawer.cs" />

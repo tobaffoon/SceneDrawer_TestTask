@@ -1,18 +1,18 @@
-﻿using SceneDrawer.BmpScene;
+﻿using SceneDrawer.SceneObjects;
 
-namespace SceneDrawer.SceneObjects.BitmapObjects {
+namespace SceneDrawer.Bitmap.BitmapObjects {
 	public class BmRect : Rect {
 		public BmRect(int x1, int y1, int x2, int y2) : base(x1, y1, x2, y2) {
 		}
 
-		public override void Paint(IPaintContext dc) {
+		public override void Draw(IPaintContext dc) {
 			if (dc is not BmpSceneBitmap bmContext) {
 				throw new ArgumentException($"{nameof(BmRect)} tried to draw itself on {dc.GetType()} while expecting {typeof(BmpSceneBitmap)}");
 			}
 
 			for (int i = X1; i <= X2; i++) {
 				for (int j = Y1; j <= Y2; j++) {
-					bmContext.SetUserScenePixel(i, j, SceneBmpFileDrawer.BlackPixel);
+					bmContext.SetUserScenePixel(i, j);
 				}
 			}
 		}

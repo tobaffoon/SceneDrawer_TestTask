@@ -1,4 +1,4 @@
-﻿namespace SceneDrawer.BmpScene {
+﻿namespace SceneDrawer.Bitmap {
 	public class BmpSceneBitmap : BmpBitmap {
 		public int UserSceneX1 { get; set; }
 		public int UserSceneY1 { get; set; }
@@ -21,8 +21,8 @@
 			return GetPixelUInt(x + _userSceneOffsetX, y + _userSceneOffsetY);
 		}
 
-		public void SetUserScenePixel(int x, int y, uint value) {
-			SetPixelUInt(x + _userSceneOffsetX, y + _userSceneOffsetY, value);
+		public void SetUserScenePixel(int x, int y) {
+			SetPixelUInt(x + _userSceneOffsetX, y + _userSceneOffsetY);
 		}
 	}
 }

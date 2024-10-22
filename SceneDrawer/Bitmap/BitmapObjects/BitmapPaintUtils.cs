@@ -1,4 +1,4 @@
-﻿namespace SceneDrawer.SceneObjects.BitmapObjects {
+﻿namespace SceneDrawer.Bitmap.BitmapObjects {
 	public static class BitmapPaintUtils {
 		/// <summary>
 		/// Using Bresenham’s Line Algorithm to generate pixel coordinates of a line

@@ -1,5 +1,5 @@
 ﻿namespace SceneDrawer.SceneObjects {
 	public abstract class SceneObject {
-		public abstract void Paint(IPaintContext dc);
+		public abstract void Draw(IPaintContext dc);
 	}
 }

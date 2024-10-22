@@ -3,8 +3,8 @@
 		public int X { get; set; }
 		public int Y1 { get; set; }
 		public int Y2 { get; set; }
-		public new int MinY => Math.Min(Y1, Y2);
-		public new int MaxY => Math.Max(Y1, Y2);
+		public int MinY => Math.Min(Y1, Y2);
+		public int MaxY => Math.Max(Y1, Y2);
 
 		public VLine(int y1, int y2, int x) {
 			Y1 = y1;

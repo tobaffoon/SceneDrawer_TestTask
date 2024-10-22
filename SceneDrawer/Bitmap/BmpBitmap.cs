@@ -1,4 +1,4 @@
-﻿namespace SceneDrawer.BmpScene {
+﻿namespace SceneDrawer.Bitmap {
 	public class BmpBitmap : IBitmap {
 		public int Width { get; }
 		public int Height { get; }
@@ -21,7 +21,7 @@
 			return BitConverter.GetBytes(pixels[x, y]);
 		}
 
-		public void SetPixelUInt(int x, int y, uint value) {
+		public void SetPixelUInt(int x, int y, uint value = BmpBitmapDrawer.BlackPixel) {
 			pixels[x, y] = value;
 		}
 
@@ -32,7 +32,7 @@
 		private void InitBitmap() {
 			for (int i = 0; i < Width; i++) {
 				for (int j = 0; j < Height; j++) {
-					pixels[i, j] = SceneBmpFileDrawer.WhitePixel;
+					pixels[i, j] = BmpBitmapDrawer.WhitePixel;
 				}
 			}
 		}

@@ -1,16 +1,16 @@
-﻿using SceneDrawer.BmpScene;
+﻿using SceneDrawer.SceneObjects;
 
-namespace SceneDrawer.SceneObjects.BitmapObjects {
+namespace SceneDrawer.Bitmap.BitmapObjects {
 	public class BmPoint : Point {
 		public BmPoint(int x, int y) : base(x, y) {
 		}
 
-		public override void Paint(IPaintContext dc) {
+		public override void Draw(IPaintContext dc) {
 			if (dc is not BmpSceneBitmap bmContext) {
 				throw new ArgumentException($"{nameof(BmPoint)} tried to draw itself on {dc.GetType()} while expecting {typeof(BmpSceneBitmap)}");
 			}
 
-			bmContext.SetUserScenePixel(X, Y, SceneBmpFileDrawer.BlackPixel);
+			bmContext.SetUserScenePixel(X, Y);
 		}
 	}
 }
