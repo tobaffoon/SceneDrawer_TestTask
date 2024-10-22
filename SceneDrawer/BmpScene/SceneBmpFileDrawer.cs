@@ -34,9 +34,10 @@
 
 		public void DrawScene(Scene scene, BmpSceneBitmap bm, FileStream oStream) {
 			using (BinaryWriter bw = new BinaryWriter(oStream)) {
-				uint filesize = (uint)(BmpHeaderSizeInBytes + BmpInfoHeaderSizeInBytes + BytesPerPixel * bm.Width * bm.Height);
+				uint filesize = (uint)(BmpHeaderSizeInBytes + BmpInfoHeaderSizeInBytes + (BytesPerPixel * bm.Width + GetPaddingPerRow(bm)) * bm.Height);
 				WriteBmpHeader(filesize, bw);
 				WriteBmpInfoHeader(bm.Width, bm.Height, bw);
+				WritePixelData(bm, bw);
 			}
 		}
 
@@ -133,10 +134,14 @@
 			}
 
 			// fix allignment
-			int padding = bm.Width * BytesPerPixel % BmpRowAllignment;
+			int padding = GetPaddingPerRow(bm);
 			for (int i = 0; i < padding; i++) {
 				bw.Write((byte)0);
 			}
+		}
+
+		private int GetPaddingPerRow(BmpSceneBitmap bm) {
+			return bm.Width * BytesPerPixel % BmpRowAllignment;
 		}
 	}
 }
