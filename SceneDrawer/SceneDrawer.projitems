@@ -13,7 +13,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)BmpScene\BmpSceneBitmap.cs" />
     <Compile Include="..\SceneDrawer\IPaintContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IBitmap.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)BmpScene\BitmapPainter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BmpScene\BmpBitmapPainter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SceneObjects\BitmapObjects\BitmapPaintUtils.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SceneObjects\BitmapObjects\BmHLine.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SceneObjects\BitmapObjects\BmLine.cs" />

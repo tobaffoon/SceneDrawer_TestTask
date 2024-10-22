@@ -1,10 +1,10 @@
 ﻿using SceneDrawer.SceneObjects;
 
 namespace SceneDrawer.BmpScene {
-	public class BitmapPainter {
+	public class BmpBitmapPainter {
 		public BmpSceneBitmap Bitmap { get; }
 
-		public BitmapPainter(BmpSceneBitmap bitmap) {
+		public BmpBitmapPainter(BmpSceneBitmap bitmap) {
 			Bitmap = bitmap;
 		}
 

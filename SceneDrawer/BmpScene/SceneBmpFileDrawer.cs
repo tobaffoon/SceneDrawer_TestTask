@@ -34,7 +34,7 @@
 
 		public void DrawScene(Scene scene, BmpSceneBitmap bm, FileStream oStream) {
 			using (BinaryWriter bw = new BinaryWriter(oStream)) {
-				uint filesize = (uint)(BmpHeaderSizeInBytes + BytesPerPixel * bm.Width * bm.Height);
+				uint filesize = (uint)(BmpHeaderSizeInBytes + BmpInfoHeaderSizeInBytes + BytesPerPixel * bm.Width * bm.Height);
 				WriteBmpHeader(filesize, bw);
 				WriteBmpInfoHeader(bm.Width, bm.Height, bw);
 			}
