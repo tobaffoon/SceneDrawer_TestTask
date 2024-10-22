@@ -4,20 +4,18 @@
 		public const int BmpInfoHeaderSizeInBytes = 40;
 		public const uint BytesPerPixel = 3;
 		public const uint PixelWordSize = 4;
-
-		private readonly byte[] _magicNumbers = [0x42, 0x4D];
-		private readonly byte[] _dataOffset = [0x36, 0x00, 0x00, 0x00];
-		private readonly byte[] _headerReserved = [0x00, 0x00, 0x00, 0x00];
-		private readonly byte[] _infoHeaderSize = [0x28, 0x00, 0x00, 0x00];
-		private readonly byte[] _infoHeaderPlanes = [0x01, 0x00];
-		private readonly byte[] _infoHeaderCompression = [0x00, 0x00, 0x00, 0x00];
-		private readonly byte[] _infoHeaderResolutionX = [0x00, 0x00, 0x00, 0x00];
-		private readonly byte[] _infoHeaderResolutionY = [0x00, 0x00, 0x00, 0x00];
-		private readonly byte[] _infoHeaderColorIndex = [0x00, 0x00, 0x00, 0x00];
-		private readonly byte[] _infoHeaderImportant = [0x00, 0x00, 0x00, 0x00];
-
-		public readonly byte[] BlackPixel = [0x00, 0x00, 0x00];
-		public readonly byte[] WhitePixel = [0xFF, 0xFF, 0xFF];
+		public const uint BlackPixel = 0x00000000;
+		public const uint WhitePixel = 0xFFFFFFFF;
+		public const ushort BpmMagicNumber = 0x424D;
+		public const uint BpmHeaderReserved = 0x00000000;
+		public const uint BpmDataOffset = 0x36000000;
+		public const uint BpmInfoHeaderSize = 0x28000000;
+		public const ushort BpmInfoHeaderPlanes = 0x0100;
+		public const uint BpmInfoHeaderCompression = 0x00000000;
+		public const uint BpmInfoHeaderResolutionX = 0x00000000;
+		public const uint BpmInfoHeaderResolutionY = 0x00000000;
+		public const uint BpmInfoHeaderColorIndex = 0x00000000;
+		public const uint BpmInfoHeaderImportant = 0x00000000;
 
 		public void DrawScene(Scene scene, Stream oStream) {
 			if (oStream is not FileStream fs) {
@@ -40,7 +38,7 @@
 
 		private void WriteBmpHeader(uint filesize, BinaryWriter bw) {
 			#region Magic numbers
-			bw.Write(_magicNumbers);
+			bw.Write(BpmMagicNumber);
 			#endregion
 
 			#region File Size
@@ -50,17 +48,17 @@
 			#endregion
 
 			#region Reserved
-			bw.Write(_headerReserved);
+			bw.Write(BpmHeaderReserved);
 			#endregion
 
 			#region Actual pixel data offset
-			bw.Write(_dataOffset);
+			bw.Write(BpmDataOffset);
 			#endregion
 		}
 
 		private void WriteBmpInfoHeader(uint widthInPixels, uint heightInPixels, BinaryWriter bw) {
 			#region Info header size
-			bw.Write(_infoHeaderSize);
+			bw.Write(BpmInfoHeaderSize);
 			#endregion
 
 			#region Image width in pixels
@@ -76,7 +74,7 @@
 			#endregion
 
 			#region Planes
-			bw.Write(_infoHeaderPlanes);
+			bw.Write(BpmInfoHeaderPlanes);
 			#endregion
 
 			#region Bits per pixel
@@ -86,7 +84,7 @@
 			#endregion
 
 			#region Compression method
-			bw.Write(_infoHeaderCompression);
+			bw.Write(BpmInfoHeaderCompression);
 			#endregion
 
 			#region Byte size of pixel data
@@ -98,19 +96,19 @@
 			#endregion
 
 			#region Print resolution (x coord)
-			bw.Write(_infoHeaderResolutionX);
+			bw.Write(BpmInfoHeaderResolutionX);
 			#endregion
 
 			#region Print resolution (y coord)
-			bw.Write(_infoHeaderResolutionY);
+			bw.Write(BpmInfoHeaderResolutionY);
 			#endregion
 
 			#region Byte size of pixel data
-			bw.Write(_infoHeaderColorIndex);
+			bw.Write(BpmInfoHeaderColorIndex);
 			#endregion
 
 			#region Byte size of pixel data
-			bw.Write(_infoHeaderImportant);
+			bw.Write(BpmInfoHeaderImportant);
 			#endregion
 		}
 	}
