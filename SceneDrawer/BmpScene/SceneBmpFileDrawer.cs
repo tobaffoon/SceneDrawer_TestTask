@@ -4,7 +4,7 @@
 		public const int BmpInfoHeaderSizeInBytes = 40;
 		public const uint BytesPerPixel = 3;
 		public const uint PixelWordSize = 4;
-		public const uint BlackPixel = 0x00000000;
+		public const uint BlackPixel = 0x000000FF;
 		public const uint WhitePixel = 0xFFFFFFFF;
 		public const ushort BpmMagicNumber = 0x424D;
 		public const uint BpmHeaderReserved = 0x00000000;
@@ -17,21 +17,21 @@
 		public const uint BpmInfoHeaderColorIndex = 0x00000000;
 		public const uint BpmInfoHeaderImportant = 0x00000000;
 
-		public void DrawScene(Scene scene, Stream oStream) {
+		public void DrawScene(Scene scene, IBitmap bm, Stream oStream) {
 			if (oStream is not FileStream fs) {
-				throw new ArgumentException($"{nameof(SceneTextFileParser)} expected {typeof(FileStream)} but recieved {oStream.GetType()}");
+				throw new ArgumentException($"{nameof(SceneBmpFileDrawer)} expected {typeof(FileStream)} but recieved {oStream.GetType()}");
 			}
 
-			DrawScene(scene, fs);
+			DrawScene(scene, bm, fs);
 		}
 
-		public void DrawScene(Scene scene, string path) {
-			DrawScene(scene, new FileStream(path, FileMode.OpenOrCreate));
+		public void DrawScene(Scene scene, IBitmap bm, string path) {
+			DrawScene(scene, bm, new FileStream(path, FileMode.OpenOrCreate));
 		}
 
-		public void DrawScene(Scene scene, FileStream oStream) {
+		public void DrawScene(Scene scene, IBitmap bm, FileStream oStream) {
 			using (BinaryWriter bw = new BinaryWriter(oStream)) {
-				uint filesize = (uint)(BmpHeaderSizeInBytes + BytesPerPixel * scene.RequiredBmpWidth * scene.RequiredBmpHeight);
+				uint filesize = (uint)(BmpHeaderSizeInBytes + BytesPerPixel * bm.Width * bm.Height);
 				WriteBmpHeader(filesize, bw);
 			}
 		}
