@@ -21,6 +21,14 @@
 			return BitConverter.GetBytes(pixels[x, y]);
 		}
 
+		public void SetPixelUInt(int x, int y, uint value) {
+			pixels[x, y] = value;
+		}
+
+		public uint GetPixelUInt(int x, int y) {
+			return pixels[x, y];
+		}
+
 		private void InitBitmap() {
 			for (int i = 0; i < Width; i++) {
 				for (int j = 0; j < Height; j++) {

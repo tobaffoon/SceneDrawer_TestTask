@@ -16,12 +16,11 @@
 		}
 
 		public uint GetUserScenePixel(int x, int y) {
-			byte[] raw = GetPixel(x + _userSceneOffsetX, y + _userSceneOffsetY);
-			return BitConverter.ToUInt32(raw);
+			return GetPixelUInt(x + _userSceneOffsetX, y + _userSceneOffsetY);
 		}
 
 		public void SetUserScenePixel(int x, int y, uint value) {
-			SetPixel(x + _userSceneOffsetX, y + _userSceneOffsetY, BitConverter.GetBytes(value));
+			SetPixelUInt(x + _userSceneOffsetX, y + _userSceneOffsetY, value);
 		}
 	}
 }
