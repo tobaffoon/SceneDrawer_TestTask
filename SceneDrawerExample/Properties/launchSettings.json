@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "SceneDrawerExample": {
+      "commandName": "Project",
+      "commandLineArgs": "\"D:\\OTHER_PROGRAMMING\\SceneDrawer_TestTask\\SceneDrawerExample\\Resources\\input.txt\""
+    }
+  }
+}
