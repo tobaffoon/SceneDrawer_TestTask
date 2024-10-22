@@ -6,8 +6,8 @@ namespace SceneDrawer.SceneObjects.BitmapObjects {
 		}
 
 		public override void Draw(IDrawContext dc) {
-			if (dc is not BmpBitmap bmContext) {
-				throw new ArgumentException($"{nameof(BmRect)} tried to draw itself on {dc.GetType()} while expecting {typeof(BmpBitmap)}");
+			if (dc is not BmpSceneBitmap bmContext) {
+				throw new ArgumentException($"{nameof(BmRect)} tried to draw itself on {dc.GetType()} while expecting {typeof(BmpSceneBitmap)}");
 			}
 		}
 	}
