@@ -1,8 +1,7 @@
 {
   "profiles": {
     "SceneDrawerExample": {
-      "commandName": "Project",
-      "commandLineArgs": "\"D:\\OTHER_PROGRAMMING\\SceneDrawer_TestTask\\SceneDrawerExample\\Resources\\quarter_toBottomRight.txt\" \"D:\\OTHER_PROGRAMMING\\SceneDrawer_TestTask\\SceneDrawerExample\\bin\\Debug\\net8.0\\out.bmp\""
+      "commandName": "Project"
     }
   }
 }
