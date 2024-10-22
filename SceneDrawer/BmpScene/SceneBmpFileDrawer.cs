@@ -21,15 +21,18 @@
 			if (oStream is not FileStream fs) {
 				throw new ArgumentException($"{nameof(SceneBmpFileDrawer)} expected {typeof(FileStream)} but recieved {oStream.GetType()}");
 			}
+			if (bm is not BmpSceneBitmap bmScene) {
+				throw new ArgumentException($"{nameof(SceneBmpFileDrawer)} expected {typeof(BmpSceneBitmap)} but recieved {bm.GetType()}");
+			}
 
-			DrawScene(scene, bm, fs);
+			DrawScene(scene, bmScene, fs);
 		}
 
-		public void DrawScene(Scene scene, IBitmap bm, string path) {
+		public void DrawScene(Scene scene, BmpSceneBitmap bm, string path) {
 			DrawScene(scene, bm, new FileStream(path, FileMode.OpenOrCreate));
 		}
 
-		public void DrawScene(Scene scene, IBitmap bm, FileStream oStream) {
+		public void DrawScene(Scene scene, BmpSceneBitmap bm, FileStream oStream) {
 			using (BinaryWriter bw = new BinaryWriter(oStream)) {
 				uint filesize = (uint)(BmpHeaderSizeInBytes + BytesPerPixel * bm.Width * bm.Height);
 				WriteBmpHeader(filesize, bw);
@@ -113,7 +116,7 @@
 			#endregion
 		}
 
-		private void WriteBitmap(BmpSceneBitmap bm, BinaryWriter bw) {
+		private void WritePixelData(BmpSceneBitmap bm, BinaryWriter bw) {
 			
 		}
 	}
