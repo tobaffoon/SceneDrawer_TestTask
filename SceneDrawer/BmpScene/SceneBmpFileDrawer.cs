@@ -33,6 +33,7 @@
 			using (BinaryWriter bw = new BinaryWriter(oStream)) {
 				uint filesize = (uint)(BmpHeaderSizeInBytes + BytesPerPixel * bm.Width * bm.Height);
 				WriteBmpHeader(filesize, bw);
+				WriteBmpInfoHeader(bm.Width, bm.Height, bw);
 			}
 		}
 
@@ -56,7 +57,7 @@
 			#endregion
 		}
 
-		private void WriteBmpInfoHeader(uint widthInPixels, uint heightInPixels, BinaryWriter bw) {
+		private void WriteBmpInfoHeader(int widthInPixels, int heightInPixels, BinaryWriter bw) {
 			#region Info header size
 			bw.Write(BpmInfoHeaderSize);
 			#endregion
@@ -88,8 +89,8 @@
 			#endregion
 
 			#region Byte size of pixel data
-			uint rawRowSize = widthInPixels * BytesPerPixel;
-			uint dataSize = (rawRowSize + rawRowSize % PixelWordSize) * heightInPixels;
+			uint rawRowSize = (uint)widthInPixels * BytesPerPixel;
+			uint dataSize = (rawRowSize + rawRowSize % PixelWordSize) * (uint)heightInPixels;
 			buffer = BitConverter.GetBytes(dataSize);
 			Array.Reverse(buffer);
 			bw.Write(buffer);
