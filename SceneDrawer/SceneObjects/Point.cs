@@ -4,6 +4,9 @@
 		public int Y { get; set; }
 
 		public Point(int x, int y) {
+			if (x < 0 || y < 0) {
+				throw new ArgumentException($"Negative coordintate was passed as Point coordinates. Only non-negative coordinates are allowed.\n Passed coordinates: ({x}, {y})");
+			}
 			X = x;
 			Y = y;
 		}

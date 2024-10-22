@@ -7,6 +7,9 @@
 		public int MaxY => Math.Max(Y1, Y2);
 
 		public VLine(int y1, int y2, int x) {
+			if (y1 < 0 || y2 < 0 || x < 0) {
+				throw new ArgumentException($"Negative coordintate was passed as VLine coordinates. Only non-negative coordinates are allowed.\n Passed coordinates: ({y1}, {y2}, {x})");
+			}
 			Y1 = y1;
 			Y2 = y2;
 			X = x;

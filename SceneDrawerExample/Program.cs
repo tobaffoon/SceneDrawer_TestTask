@@ -3,7 +3,7 @@ using SceneDrawer.Bitmap;
 
 namespace SceneDrawerExample {
 	public class Program() {
-		public static void Main(string[] args) {
+		public static int Main(string[] args) {
 			SceneTextFileParser sceneParser = new SceneTextFileParser();
 
 			string inPath;
@@ -22,12 +22,24 @@ namespace SceneDrawerExample {
 				outPath = Path.Combine(Environment.CurrentDirectory, "out.bmp");
 			}
 
-			Scene scene = sceneParser.ParseScene(inPath);
-			BmpSceneBitmap bmpSceneBitmap = new BmpSceneBitmap(scene.X1, scene.Y1, scene.X2, scene.Y2);
-			BmpBitmapDrawer drawer = new BmpBitmapDrawer();
-			drawer.DrawScene(scene, bmpSceneBitmap);
+			try {
+				Scene scene = sceneParser.ParseScene(inPath);
+				BmpSceneBitmap bmpSceneBitmap = new BmpSceneBitmap(scene.X1, scene.Y1, scene.X2, scene.Y2);
+				BmpBitmapDrawer drawer = new BmpBitmapDrawer();
+				drawer.DrawScene(scene, bmpSceneBitmap);
 
-			BitmapToBmpMarshaller.MarshallBitmap(bmpSceneBitmap, outPath);
+				BitmapToBmpMarshaller.MarshallBitmap(bmpSceneBitmap, outPath);
+			}
+			catch (Exception ex) {
+				Console.Error.WriteLine($"Error while executing example program. Caught exception of type {ex.GetType()}");
+				Console.Error.WriteLine("---------------------------------------");
+				Console.Error.WriteLine($"Message:\n{ex.Message}");
+				Console.Error.WriteLine("---------------------------------------");
+				Console.Error.WriteLine($"StackTrace:\n{ex.StackTrace}");
+				return -1;
+			}
+
+			return 0;
 		}
 	}
 }

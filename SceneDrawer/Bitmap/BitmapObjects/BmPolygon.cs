@@ -10,21 +10,21 @@ namespace SceneDrawer.Bitmap.BitmapObjects {
 
 			int x1, y1, x2, y2;
 			// draw all lines until final point
-			for (int i = 0; i < Points.Count-1; i++) {
-				x1 = Points[i].Item1;
-				y1 = Points[i].Item2;
-				x2 = Points[i+1].Item1;
-				y2 = Points[i+1].Item2;
+			for (int i = 0; i < _points.Count-1; i++) {
+				x1 = _points[i].Item1;
+				y1 = _points[i].Item2;
+				x2 = _points[i+1].Item1;
+				y2 = _points[i+1].Item2;
 				foreach ((int, int) coord in BitmapPaintUtils.GetLinePixelsGenerator(x1, y1, x2, y2)) {
 					bmContext.SetUserScenePixel(coord.Item1, coord.Item2);
 				}
 			}
 
 			// connect final point and first point
-			x1 = Points[^1].Item1;
-			y1 = Points[^1].Item2;
-			x2 = Points[0].Item1;
-			y2 = Points[0].Item2;
+			x1 = _points[^1].Item1;
+			y1 = _points[^1].Item2;
+			x2 = _points[0].Item1;
+			y2 = _points[0].Item2;
 			foreach ((int, int) coord in BitmapPaintUtils.GetLinePixelsGenerator(x1, y1, x2, y2)) {
 				bmContext.SetUserScenePixel(coord.Item1, coord.Item2);
 			}

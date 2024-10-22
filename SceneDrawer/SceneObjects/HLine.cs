@@ -7,6 +7,9 @@
 		public int MaxX => Math.Max(X1, X2);
 
 		public HLine(int x1, int x2, int y) {
+			if (x1 < 0 || x2 < 0 || y < 0) {
+				throw new ArgumentException($"Negative coordintate was passed as HLine coordinates. Only non-negative coordinates are allowed.\n Passed coordinates: ({x1}, {x2}, {y})");
+			}
 			X1 = x1;
 			X2 = x2;
 			Y = y;
