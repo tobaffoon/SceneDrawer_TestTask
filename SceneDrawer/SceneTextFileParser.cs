@@ -1,5 +1,4 @@
-﻿using SceneDrawer.BmpScene;
-using SceneDrawer.DrawObjects;
+﻿using SceneDrawer.DrawObjects;
 
 namespace SceneDrawer {
 	public class SceneTextFileParser : ISceneParser {
@@ -16,13 +15,12 @@ namespace SceneDrawer {
 		}
 		
 		public Scene ParseScene(FileStream fs) {
-			Scene scene = new Scene();
-			BmpSceneBitmap bm;
+			Scene scene;
 			string currentLine;
 			using (StreamReader reader = new StreamReader(fs)) {
 				currentLine = reader.ReadLine();
 				int[] sceneCoords = currentLine.Trim().Split(' ').Select(int.Parse).ToArray();
-				bm = new BmpSceneBitmap(sceneCoords[0], sceneCoords[1], sceneCoords[2], sceneCoords[3]);
+				scene = new Scene(sceneCoords[0], sceneCoords[1], sceneCoords[2], sceneCoords[3]);
 
 				while ((currentLine = reader.ReadLine()) != null) {
 					scene.DrawObjects.Add(ParseDrawObject(currentLine));
