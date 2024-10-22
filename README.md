@@ -1,5 +1,5 @@
 # Description
-Tool for creating .bmp files with simple shapes from text description.
+Tool for creating .bmp files with simple shapes from text description. It is a test task for PetroGM.
 
 Written on C#, .NET 8.0.
 
