@@ -1,13 +1,11 @@
-﻿namespace SceneDrawer.Bitmap.BitmapObjects {
-	public static class BitmapPaintUtils {
+﻿namespace SceneDrawer.Bitmap {
+	/// <summary>
+	/// Static class with methods to assist in drawing on Bitmap.
+	/// </summary>
+	public static class BitmapDrawUtils {
 		/// <summary>
-		/// Using Bresenham’s Line Algorithm to generate pixel coordinates of a line
+		/// Use Bresenham’s Line Algorithm to generate pixel coordinates of a line.
 		/// </summary>
-		/// <param name="x1"></param>
-		/// <param name="y1"></param>
-		/// <param name="x2"></param>
-		/// <param name="y2"></param>
-		/// <returns></returns>
 		public static IEnumerable<(int, int)> GetLinePixelsGenerator(int x1, int y1, int x2, int y2) {
 			int w = x2 - x1;
 			int h = y2 - y1;
@@ -24,7 +22,7 @@
 				if (h < 0) dy2 = -1; else if (h > 0) dy2 = 1;
 				dx2 = 0;
 			}
-			int numerator = longest >> 1; //
+			int numerator = longest >> 1;
 			for (int i = 0; i <= longest; i++) {
 				yield return (x1, y1);
 

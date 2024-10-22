@@ -15,7 +15,7 @@ namespace SceneDrawer.Bitmap.BitmapObjects {
 				y1 = _points[i].Item2;
 				x2 = _points[i+1].Item1;
 				y2 = _points[i+1].Item2;
-				foreach ((int, int) coord in BitmapPaintUtils.GetLinePixelsGenerator(x1, y1, x2, y2)) {
+				foreach ((int, int) coord in BitmapDrawUtils.GetLinePixelsGenerator(x1, y1, x2, y2)) {
 					bmContext.SetUserScenePixel(coord.Item1, coord.Item2);
 				}
 			}
@@ -25,7 +25,7 @@ namespace SceneDrawer.Bitmap.BitmapObjects {
 			y1 = _points[^1].Item2;
 			x2 = _points[0].Item1;
 			y2 = _points[0].Item2;
-			foreach ((int, int) coord in BitmapPaintUtils.GetLinePixelsGenerator(x1, y1, x2, y2)) {
+			foreach ((int, int) coord in BitmapDrawUtils.GetLinePixelsGenerator(x1, y1, x2, y2)) {
 				bmContext.SetUserScenePixel(coord.Item1, coord.Item2);
 			}
 		}

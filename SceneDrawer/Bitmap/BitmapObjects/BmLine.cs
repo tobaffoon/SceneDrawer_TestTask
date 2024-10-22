@@ -10,7 +10,7 @@ namespace SceneDrawer.Bitmap.BitmapObjects {
 				throw new ArgumentException($"{nameof(BmLine)} tried to draw itself on {dc.GetType()} while expecting {typeof(BmpSceneBitmap)}");
 			}
 
-			foreach ((int, int) coord in BitmapPaintUtils.GetLinePixelsGenerator(X1, Y1, X2, Y2)) {
+			foreach ((int, int) coord in BitmapDrawUtils.GetLinePixelsGenerator(X1, Y1, X2, Y2)) {
 				bmContext.SetUserScenePixel(coord.Item1, coord.Item2);
 			}
 		}
