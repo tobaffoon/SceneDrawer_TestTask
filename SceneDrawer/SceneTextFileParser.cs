@@ -75,7 +75,7 @@ namespace SceneDrawer {
 			Polygon polygon = new BmPolygon();
 			for (int i = 0; i < args.Length; i+=2) {
 				polygon.Points.Add(
-					new System.Drawing.Point(int.Parse(args[i]), int.Parse(args[i + 1]))
+					(int.Parse(args[i]), int.Parse(args[i + 1]))
 					);
 			}
 			return polygon;

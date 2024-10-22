@@ -28,8 +28,8 @@ namespace SceneDrawerExample {
 						break;
 					case Polygon poly:
                         Console.WriteLine("Polygon:");
-						foreach (System.Drawing.Point point in poly.Points) {
-							Console.WriteLine($"\t({point.X}, {point.Y})");
+						foreach ((int, int) point in poly.Points) {
+							Console.WriteLine($"\t({point.Item1}, {point.Item2})");
 						}
 						break;
 				}

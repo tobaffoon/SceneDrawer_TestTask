@@ -1,5 +1,5 @@
 ﻿namespace SceneDrawer.SceneObjects {
 	public abstract class Polygon : SceneObject {
-		public List<System.Drawing.Point> Points { get; } = new List<System.Drawing.Point>();
+		public List<(int,int)> Points { get; } = new List<(int, int)>();
 	}
 }

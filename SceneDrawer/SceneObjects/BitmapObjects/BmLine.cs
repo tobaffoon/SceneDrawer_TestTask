@@ -9,6 +9,10 @@ namespace SceneDrawer.SceneObjects.BitmapObjects {
 			if(dc is not BmpSceneBitmap bmContext) {
 				throw new ArgumentException($"{nameof(BmLine)} tried to draw itself on {dc.GetType()} while expecting {typeof(BmpSceneBitmap)}");
 			}
+
+			foreach ((int, int) coord in BitmapPaintUtils.GetLinePixelsGenerator(X1, Y1, X2, Y2)) {
+				bmContext.SetUserScenePixel(coord.Item1, coord.Item2, SceneBmpFileDrawer.BlackPixel);
+			}
 		}
 	}
 }
